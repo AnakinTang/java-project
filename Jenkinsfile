@@ -4,6 +4,7 @@ node('linux') {
     git url: 'https://github.com/AnakinTang/java-project.git', branch: 'master'
     stage('Test') {
         sh "echo hello world"
-        sh "apt-get install nginx"
+        sh "ant -f test.xml -v"
+        junit 'reports/result.xml' 
     }
 }
