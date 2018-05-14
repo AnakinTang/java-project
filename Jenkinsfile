@@ -1,7 +1,7 @@
 properties([pipelineTriggers([githubPush()])])
 
 node('linux') {
-    git url: 'https://github.com/AnakinTang/java-project.git', branch: 'master'
+    git credentialsId: 'github-creditial', url: 'https://github.com/AnakinTang/java-project.git'
     stage('Test') {
         sh "echo hello world"
         sh "ant -f test.xml -v"
